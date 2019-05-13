@@ -1,2 +1,2 @@
 # Thanos snaps
-<p><a href="https://phnam2.github.io/web_practice2/">Link</a> to the snap</p>
+<p><a href="https://phnam2.github.io/thanos_snap/">Link</a> to the snap</p>
