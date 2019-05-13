@@ -23,17 +23,30 @@
         <body>
           <div class="content">
 <!--            <img src="image/yell.png" height="400">-->
-           <div style="height:0px;overflow:hidden">
-                <input type="file" id="fileInput" name="fileInput" accept="image/gif, image/jpeg, image/png"/>
+           <div>
+                <input type="file" id="fileInput" name="fileInput" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);"/>
+                <img id="blah" src="#" style="display: none"/>
            </div>
-           <button type="button" onclick="chooseFile();">Choose Image</button>
+<!--           <button type="button" onclick="chooseFile();">Choose Image</button>-->
            <button id="start-btn"></button>
           </div>   
         <script> 
         
             
-        function chooseFile() {
-            $("#fileInput").click();
+        function readURL(input) {
+            $("#blah").show();
+            $("#fileInput").hide();
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                    .attr('src', e.target.result)
+                    .height(400);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
         }
             
             
